@@ -83,16 +83,12 @@ app.get('/', function (req, res) {
 });
 
 app.get('/:articleName', function (req, res) {
+    
+  var articleName=req.params.articleName;    
   res.send(createTemplate(articles[articleName]));
 });
 
-app.get('/article2', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'article2.html'));
-});
 
-app.get('/article3', function (req, res) {
-   res.sendFile(path.join(__dirname, 'ui', 'article3.html'));
-});
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
