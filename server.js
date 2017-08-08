@@ -5,6 +5,42 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+var articles={
+    articleOne:{ 
+            title:'Article1 FaizanBari',
+            heading:'Article1',
+            date:'Aug8 2017',
+            content:`<p>
+            This is my article 1 content.
+            </p>`
+        
+                },
+    articleTwo:{
+            title:'Article2 FaizanBari',
+            heading:'Article2',
+            date:'sep8 2017',
+            content:`<p>
+            This is my article 2 content.
+            </p>`
+    },
+    articleThree:{ 
+            title:'Article3 FaizanBari',
+            heading:'Article3',
+            date:'oct8 2017',
+            content:`<p>
+            This is my article 3 content.
+            </p>`}
+};
+
+
+
+
+
+
+
+
+
+
 var article1={
     title:'Article1 FaizanBari',
     heading:'Article1',
