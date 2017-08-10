@@ -84,7 +84,8 @@ submit.onclick=function(){
         
     };
     
-        
+    var nameInput=document.getElementById('name');
+    var name=nameInput.value;    
     //make the request
     request.open('GET',"http://faizanbari1017.imad.hasura-app.io/submit_name?name="+name,true);
     request.send(null);
