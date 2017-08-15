@@ -28,32 +28,7 @@ var config = {
 var app = express();
 app.use(morgan('combined'));
 
-var articles={
-    article1:{ 
-            title:'Article1 FaizanBari',
-            heading:'Article1',
-            date:'Aug8 2017',
-            content:`<p>
-            This is my article 1 content.
-            </p>`
-        
-                },
-    article2:{
-            title:'Article2 FaizanBari',
-            heading:'Article2',
-            date:'sep8 2017',
-            content:`<p>
-            This is my article 2 content.
-            </p>`
-    },
-    article3:{ 
-            title:'Article3 FaizanBari',
-            heading:'Article3',
-            date:'oct8 2017',
-            content:`<p>
-            This is my article 3 content.
-            </p>`}
-};
+
 
 
 
