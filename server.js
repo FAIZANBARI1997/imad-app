@@ -8,10 +8,10 @@ var config = {
     database: 'faizanbari1017',
     host: 'db.imad.hasura-app.io',
     port:'5432',
-    passsword:  'db-faizanbari1017-9676'
+    passsword: process.env.DB_PASSWORD
 };
 
- process.env.DB_PASSWORD
+
 
 
 
@@ -185,7 +185,7 @@ app.get('/articles/:articleName', function (req, res) {
             }
         }
   });
-   
+  
 });
 
 
