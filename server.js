@@ -8,10 +8,10 @@ var config = {
     database: 'faizanbari1017',
     host: 'db.imad.hasura-app.io',
     port:'5432',
-    passsword: process.env.DB_PASSWORD
+    passsword:  'db-faizanbari1017-9676'
 };
 
-
+ process.env.DB_PASSWORD
 
 
 
