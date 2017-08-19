@@ -39,7 +39,7 @@ button.onclick=function(){
     
         
     //make the request
-    request.open('GET',"http://faizanbari1017.imad.hasura-app.io/counter",true);
+    request.open('POST',"http://faizanbari1017.imad.hasura-app.io/submit_name?name="+name,true);
     request.send(null);
 
 };
@@ -87,7 +87,7 @@ submit.onclick=function(){
     var nameInput=document.getElementById('name');
     var name=nameInput.value;    
     //make the request
-    request.open('GET',"http://faizanbari1017.imad.hasura-app.io/submit_name?name="+name,true);
+    request.open('POST',"http://faizanbari1017.imad.hasura-app.io/submit_name?name="+name,true);
     request.send(null);
     //Make a request to server and send name
     
