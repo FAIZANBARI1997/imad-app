@@ -144,7 +144,9 @@ app.post('/create-user', function (req, res) {
             {
                 res.send(403).send('username/password is invalid');
             }
+            else{
             res.send('user successfully created: ', + username); 
+            }
         }
   });
 });
