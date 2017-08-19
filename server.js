@@ -125,7 +125,27 @@ app.post('/create-user', function (req, res) {
 });
 
 
+app.post('/login', function (req, res){
+   var hashedString = hash(req.params.input, 'this-is-some-random-string');
+   res.send(hashedString);
+   });
 
+app.post('/create-user', function (req, res) {
+    //accepts username and password
+    var username = req.body.username;
+    var password = req.body.password;
+    
+    
+  pool.query('SELECT * from INTO "user1" username =$1', [username], function (err, result){
+         if(err){
+            res.status(500).send(err.toString());
+        }else{
+            
+            res.send('user successfully created: ', + username); 
+        }
+  });
+});
+    
 
 
 
