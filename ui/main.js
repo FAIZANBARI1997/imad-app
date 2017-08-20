@@ -1,50 +1,6 @@
-var button=document.getElementById('counter');
 
 
-button.onclick=function(){
-    //create a request object
-    var request=new XMLHttpRequest();
-    
-    
-    //capture response in a variable
-    
-    request.onreadystatechange=function(){
-        
-        if(request.readyState==XMLHttpRequest.DONE){
-        //take some action
-    
-    
-        if(request.status==200){
-             //capture a list of names and render it as list
-    var names=request.responseText;
-    names=JSON.parse(names);
-    var list='';
-    
-    for(var i=0;i<names.length;i++){
-        list+='<li>'+names[i]+'</li>';
-    }
-    
-    var ul=document.getElementById('namelist');
-    ul.innerHTML=list;
-            
-        }
-        
-        
-        } 
-        
-        //not done yet
-        
-        
-    };
-    
-        
-    //make the request
-    request.open('POST',"http://faizanbari1017.imad.hasura-app.io/submit_name?name="+name,true);
-    request.send(null);
-
-};
-
-//submit name
+//submit username/password to login
 var nameInput=document.getElementById('name');
 var name=nameInput.value;
 var submit=document.getElementById('submit_btn');
@@ -62,20 +18,14 @@ submit.onclick=function(){
     
     
         if(request.status==200){
-             //capture a list of names and render it as list
-    var names=request.responseText;
-    names=JSON.parse(names);
-    var list='';
-    
-    for(var i=0;i<names.length;i++){
-        list+='<li>'+names[i]+'</li>';
-    }
-    
-    var ul=document.getElementById('namelist');
-    ul.innerHTML=list;
+             console.log('userlogged in');
+             alert('logged in successfully');
             
         }
-        
+         else (request.status==403)
+         {
+             alert('username/password is incorrect');
+         }
         
         } 
         
@@ -84,11 +34,13 @@ submit.onclick=function(){
         
     };
     
-    var nameInput=document.getElementById('name');
-    var name=nameInput.value;    
+    var username = document.getElementById('username').value;
+     var password = document.getElementById('password').value;
+    console.log(username);
+    console.log(password);
     //make the request
-    request.open('POST',"http://faizanbari1017.imad.hasura-app.io/submit_name?name="+name,true);
-    request.send(null);
+    request.open('POST','http://faizanbari1017.imad.hasura-app.io/login',true);
+    request.send(JSON.stringify({username:username,password:password}));
     //Make a request to server and send name
     
     
