@@ -22,11 +22,11 @@ submit.onclick=function(){
              alert('logged in successfully');
             
         }
-         else (request.status==403)
+         else if (request.status==403)
          {
              alert('username/password is incorrect');
          }
-         else (request.status==500)
+         else if (request.status==500)
          {
              alert('something went wrong on the server');
          }
@@ -44,6 +44,7 @@ submit.onclick=function(){
     console.log(password);
     //make the request
     request.open('POST','http://faizanbari1017.imad.hasura-app.io/login',true);
+    request.setRequestHeader('Content-Type','application/json');
     request.send(JSON.stringify({username:username,password:password}));
     //Make a request to server and send name
     
