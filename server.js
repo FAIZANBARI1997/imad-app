@@ -136,7 +136,9 @@ app.post('/login', function (req, res){
                 res.send(403).send('username/password is invalid');
             }
             else{
-            var dbString = result.rows[0].password;    
+            var dbString = result.rows[0].password;
+            var salt = dbString.split('$')[2];
+            var hashedPassword = hash(password, salt);
             res.send('user successfully created: ', + username); 
         
             }
@@ -145,7 +147,28 @@ app.post('/login', function (req, res){
   });
    });
 
-
+//app.post('/create-user', function (req, res) {
+    //accepts username and password
+    var username = req.body.username;
+    var password = req.body.password;
+    
+    
+  pool.query('SELECT * from INTO "user1" username =$1', [username], function (err, result){
+         if(err){
+            res.status(500).send(err.toString());
+        }else{
+            if(result.rows.length ===0)
+            {
+                res.send(403).send('username/password is invalid');
+            }
+            else{
+                var dbString = result.rows[0].password;
+                var salt = dbString
+                res.send('user successfully created: ', + username); 
+            }
+        }
+  });
+});
     
 
 
