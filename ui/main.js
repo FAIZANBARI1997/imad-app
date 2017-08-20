@@ -26,6 +26,10 @@ submit.onclick=function(){
          {
              alert('username/password is incorrect');
          }
+         else (request.status==500)
+         {
+             alert('something went wrong on the server');
+         }
         
         } 
         
